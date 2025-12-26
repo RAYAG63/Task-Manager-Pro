@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #fdf6fb; /* soft pink background */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.todo-app {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 182, 193, 0.3);
+    overflow: hidden;
+}
+
+.todo-header {
+    background: linear-gradient(135deg, #b5e4f9, #f7c6dd);
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+.todo-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.todo-input-container {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    border-bottom: 1px solid #f1dbe7;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #b5e4f9;
+    border-radius: 4px;
+    outline: none;
+}
+
+.todo-input:focus {
+    border-color: #f7c6dd;
+}
+
+.add-btn {
+    padding: 10px 20px;
+    background: #b5e4f9;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: #a3d8f0;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: #fdf1f7;
+}
+
+.filter-btn {
+    padding: 6px 16px;
+    border: 1px solid #f7c6dd;
+    background: white;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background: #fdf1f7;
+}
+
+.filter-btn.active {
+    background: #f7c6dd;
+    color: #333;
+    border-color: #f7c6dd;
+}
+
+.todo-list {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1dbe7;
+}
+
+.todo-item:hover {
+    background-color: #fdf1f7;
+}
+
+.todo-item.completed {
+    opacity: 0.6;
+}
+
+.todo-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 16px;
+    color: #444;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.delete-btn {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    color: #f2a7c6;
+    border: none;
+    border-radius: 4px;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-item:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    background: #fdf1f7;
+    color: #e77fb0;
+}
+
+.todo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #fdf1f7;
+    border-top: 1px solid #f1dbe7;
+}
+
+.items-left {
+    color: #777;
+    font-size: 14px;
+}
+
+.clear-completed {
+    padding: 6px 12px;
+    background: transparent;
+    color: #777;
+    border: 1px solid #f7c6dd;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.clear-completed:hover {
+    background: #fdf1f7;
+}
+
+/* Scrollbar styling */
+.todo-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+    background: #fdf1f7;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: #f7c6dd;
+    border-radius: 3px;
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+    background: #eaa6c6;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .todo-header h1 {
+        font-size: 2rem;
+    }
+    
+    .todo-input-container {
+        flex-direction: column;
+    }
+    
+    .add-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .filter-container {
+        flex-wrap: wrap;
+    }
+    
+    .todo-item {
+        padding: 15px 20px;
+    }
+}
+/* ✨ UI Polish – Cotton Candy Enhancements ✨ */
+
+/* Smooth button interactions */
+.add-btn,
+.filter-btn,
+.clear-completed,
+.delete-btn {
+    transition: all 0.2s ease;
+}
+
+.add-btn:active,
+.filter-btn:active,
+.clear-completed:active,
+.delete-btn:active {
+    transform: scale(0.96);
+}
+
+/* Input glow on focus */
+.todo-input {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-input:focus {
+    box-shadow: 0 0 0 3px rgba(247, 198, 221, 0.4);
+}
+
+/* Smooth todo item entry */
+.todo-item {
+    animation: fadeIn 0.25s ease-in;
+}
+
+/* Softer completed look */
+.todo-item.completed {
+    background: linear-gradient(
+        to right,
+        rgba(181, 228, 249, 0.2),
+        rgba(247, 198, 221, 0.2)
+    );
+}
+
+/* Header shimmer animation */
+.todo-header {
+    background-size: 200% 200%;
+    animation: shimmer 6s ease infinite;
+}
+
+/* Subtle hover lift */
+.todo-item:hover {
+    transform: translateY(-1px);
+    transition: transform 0.15s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
